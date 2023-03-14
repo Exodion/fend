@@ -60,6 +60,16 @@ section {
     min-height: 80vh;
 }
 
+section.highlight{
+    border-style: solid;
+    border-color: yellow;
+    border-width: 0.5vw;
+    border-top: none;
+    border-bottom: none;
+    
+    
+}
+
 
 /* ---- Module Rules ---- */
 
@@ -72,6 +82,8 @@ section {
 
 .navbar__menu li {
     display: inline-block;
+    margin-left: 1vw;
+    font-family: 'Fira Sans', sans-serif;;
 }
 
 .navbar__menu .menu__link {
