@@ -87,7 +87,7 @@ section.highlight{
 }
 
 .navbar__menu .menu__link {
-    display: block;
+    display: inline-flex;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;

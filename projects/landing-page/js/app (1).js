@@ -33,7 +33,19 @@ let coordinates = [];
 let coordtop, coordleft;
 
 let allAnchors;
+/**
+ * End Global Variables
+ * Start Helper Functions
+ * 
+*/
 
+
+
+/**
+ * End Helper Functions
+ * Begin Main Functions
+ * 
+*/
 
 // build the nav
 allSections = document.querySelectorAll("section");
@@ -46,10 +58,9 @@ for (let section of allSections){
     heading = section.querySelector("h2").textContent;
     link = `<a href="#${ident}">${heading}</a>`;
 
-    //create li tag
+    //li erstellen
     newLi = document.createElement("li");
     newLi.setAttribute("id",`menu-link-${x}`);
-    newLi.setAttribute("class",`menu__link`);
     newLi.addEventListener("click",console.log("test"));
     newLi.innerHTML = link;
     menuItems[x-1] = newLi;
@@ -70,6 +81,19 @@ for (let menuItem of menuItems){
 document.querySelector("#navbar__list").appendChild(fragment); 
 
 
+
+
+
+// document.querySelectorAll('a[href^="#"]').forEach(anchorItem => {
+//     anchorItem.addEventListener("click", function(event){
+//         event.preventDefault();
+
+//             document.querySelector(this.getAttribute("href")).scrollIntoView({
+
+//                 behavior: "smooth"
+//             }) 
+//     })
+// });
 
 allAnchors = document.querySelectorAll('a[href^="#"]');
 
@@ -96,23 +120,36 @@ for (let anchorItem of allAnchors){
 document.addEventListener("scroll", function(event){
         for (const section of allSections) {
         const box = section.getBoundingClientRect();
-console.log(section.id);
+        console.log(box.top);
+        //Find a value that works best, but 150 seems to be a good start.
         if (box.top <= 200 && box.bottom >= 150) {
         //apply active state on current section and corresponding Nav link
         section.setAttribute("class","active");
         section.classList.add("highlight");
+        console.log("test1");
 
-        document.querySelector(`a[href='#${section.id}']`).classList.add("active");
-       // document.querySelector(`id="menu-link-${section.id}`).classList.add("active");
+
 
         } else {
         //Remove active state from other section and corresponding Nav link
         section.setAttribute("class","");
-        
-        document.querySelector(`a[href='#${section.id}']`).classList.remove("active");
-       // document.querySelector(`id="menu-link-${section.id}`).classList.remove("active");
+        console.log("test2");
         }
         }
     })
+
+// Scroll to anchor ID using scrollTO event
+console.log("verify");
+/**
+ * End Main Functions
+ * Begin Events
+ * 
+*/
+
+// Build menu 
+
+// Scroll to section on link click
+
+// Set sections as active
 
 
